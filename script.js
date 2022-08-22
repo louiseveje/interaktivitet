@@ -38,3 +38,22 @@ if (this == klikAlkohol) {
 } else {
   console.log("alkoholfri");
 }
+
+ngOnInit();
+{
+  var myDate = new Date();
+  var hrs = myDate.getHours();
+
+  var besked;
+
+  if (hrs >= 5 && hrs <= 10) besked = "Godmorgen";
+  else if (hrs >= 10 && hrs <= 18) besked = "Goddag";
+  else if (hrs >= 18 && hrs <= 24) besked = "Godaften";
+  else if (hrs >= 24 && hrs <= 5) besked = "Godnat";
+
+  document.getElementById("greeting").innerHTML = "<b>" + greet + "</b>!";
+}
+
+document.querySelector("#tal").value;
+
+tal = Math.random() * 11;
