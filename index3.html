@@ -9,15 +9,44 @@
     <title>Document</title>
   </head>
   <body>
-    <main>
-      <h1>Gæt et tal</h1>
-      <p>Skriv et tal mellem 0 og 10</p>
+    <h1>Gæt et tal</h1>
+    <p>Skriv et tal mellem 0 og 10</p>
+    <input type="number" id="tal" />
+    <button>Tjek tal</button>
 
-      <input type="number" id="tal" />
+    <script>
+      //laver et click event på button
+      document.querySelector("button").addEventListener("click", tjekTal);
+      let forsoeg = 0;
+      //math.floor sikrer et tal mellem 0 og 10
+      const ranNum = Math.floor(Math.random() * 11);
+      //console.log(ranNum);//
 
-      <button>Tjek tal</button>
-    </main>
+      function tjekTal() {
+        //antal forsøg du bruger = ++ lægger 1 til
+        forsoeg++;
+        //input felt #tal.. value skriver tallet i konsollen som brugeren har skrevet
+        const brugerTal = document.querySelector("#tal").value;
+        console.log(brugerTal);
 
-    <script src="script.js"></script>
+        //spørger om det tilfældige nummer er større en brugertallet
+        if (ranNum > brugerTal) {
+          //pop-up tingen som siger resultatet
+          alert("Øv! " + brugerTal + " var for lavt. Prøv igen:)");
+          console.log(ranNum, brugerTal);
+          //spørger om det tilfældige tal er mindre en brugertallet
+        } else if (ranNum < brugerTal) {
+          alert("Øv! " + brugerTal + " var for højt. Prøv igen:)");
+          console.log(ranNum, brugerTal);
+          //spørger om tallet er lig med brugertallet
+        } else {
+          //konkatenering = sammensætte - hvor man sætter tekst sammen med tal
+          alert(brugerTal + " er rigtigt!" + " Du brugte " + forsoeg + " forsøg. Prøv et nyt tal.");
+          console.log("Du gættede rigtigt!");
+          // i tilfælde af at der er gættet rigtigt, reloader HTML siden
+          location.reload();
+        }
+      }
+    </script>
   </body>
 </html>

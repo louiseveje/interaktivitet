@@ -10,22 +10,31 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <div id="beer">
-        <img src="billeder/beer.webp" alt="beer" />
-      </div>
-      <div id="snaps">
-        <img src="billeder/snaps.webp" alt="snaps" />
-      </div>
+    <div class="wrap">
+      <img id="beer" src="billeder/beer.webp" alt="beer" class="" />
+      <img id="snaps" src="billeder/snaps.webp" alt="snaps" class="" />
+      <img id="cola" src="billeder/cola.webp" alt="cola" class="" />
+      <img id="fanta" src="billeder/fanta.webp" alt="fanta" class="" />
+    </div>
 
-      <div id="cola">
-        <img src="billeder/cola.webp" alt="cola" />
-      </div>
-      <div id="fanta">
-        <img src="billeder/fanta.webp" alt="fanta" />
-      </div>
-    </main>
+    <script>
+      //vælger alle images
+      //laver ikke en const først, fordi de ikke skal bruges igen. Kan lave et direkte click event på det.
+      document.querySelector("#snaps").addEventListener("click", tjek);
+      document.querySelector("#beer").addEventListener("click", tjek);
+      document.querySelector("#cola").addEventListener("click", tjek);
+      document.querySelector("#fanta").addEventListener("click", tjek);
 
-    <script src="script.js"></script>
+      function tjek() {
+        //this.alt indeholder det der står i alt tagget ovenfor
+        //"||" pipes (option i)
+        if (this.alt == "beer" || this.alt == "snaps") {
+          console.log("indeholder alkohol");
+          //ellers til alle andre (fanta og cola)
+        } else {
+          console.log("alkoholfri");
+        }
+      }
+    </script>
   </body>
 </html>
